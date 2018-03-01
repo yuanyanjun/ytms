@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.Annex", "YTMS.Annex\YTMS.Annex.csproj", "{74B4D42C-AD02-4947-AB80-C02ECA36F76A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.Common.Core", "YTMS.Common.Core\YTMS.Common.Core.csproj", "{FB09703D-0E5E-468A-910C-45F77C9795D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.WebApi", "YTMS.WebApi\YTMS.WebApi.csproj", "{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.WebUI", "YTMS.WebUI\YTMS.WebUI.csproj", "{899BD92F-1487-4DEA-B4D3-5A6A16D83242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.BLL", "YTMS.BLL\YTMS.BLL.csproj", "{12A0019A-C2A1-4459-811A-6278D43CCACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.DAL", "YTMS.DAL\YTMS.DAL.csproj", "{A7DD8A14-C9B3-49AC-B2A5-027D63F06B39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.MpUI", "YTMS.MpUI\YTMS.MpUI.csproj", "{4B3E7092-7864-47FC-A843-590642E4AE47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899BD92F-1487-4DEA-B4D3-5A6A16D83242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899BD92F-1487-4DEA-B4D3-5A6A16D83242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899BD92F-1487-4DEA-B4D3-5A6A16D83242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899BD92F-1487-4DEA-B4D3-5A6A16D83242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A0019A-C2A1-4459-811A-6278D43CCACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A0019A-C2A1-4459-811A-6278D43CCACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A0019A-C2A1-4459-811A-6278D43CCACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A0019A-C2A1-4459-811A-6278D43CCACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DD8A14-C9B3-49AC-B2A5-027D63F06B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DD8A14-C9B3-49AC-B2A5-027D63F06B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DD8A14-C9B3-49AC-B2A5-027D63F06B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DD8A14-C9B3-49AC-B2A5-027D63F06B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3E7092-7864-47FC-A843-590642E4AE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3E7092-7864-47FC-A843-590642E4AE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3E7092-7864-47FC-A843-590642E4AE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3E7092-7864-47FC-A843-590642E4AE47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A5FA4D4-BD6E-4B07-A4DC-1D08F2C56A7B}
+	EndGlobalSection
+EndGlobal
