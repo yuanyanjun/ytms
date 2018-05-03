@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "首页";
+
+}
+@section Style{
+
+}
+@section Body{
+    <div id="app">
+        <el-button v-on:click="visible = true">Button</el-button>
+        <el-dialog :visible.sync="visible" title="Hello world">
+            <p>Try Element</p>
+        </el-dialog>
+    </div>
+}
+@section Script{
+<script>
+         new Vue({
+             el: '#app',
+             data: function () {
+                 return { visible: false }
+             }
+         })
+</script>
+}
