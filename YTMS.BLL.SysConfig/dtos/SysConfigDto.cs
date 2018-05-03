@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YTMS.Domain
+namespace YTMS.BLL.SysConfig
 {
-    public class Class1
+    public class SysConfigDto : YTMS.Domain.T_Config
     {
     }
 }

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>3518c609-0b17-46d7-9cf2-b3aac34ea3be</ProjectGuid>
+    <ProjectGuid>{3518C609-0B17-46D7-9CF2-B3AAC34EA3BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YTMS.BLL.SysConfig</RootNamespace>
@@ -30,24 +30,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="SqlSugar">
+      <HintPath>..\Reference\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="dtos\SysConfigDto.cs" />
+    <Compile Include="impl\SysConfigServer.cs" />
+    <Compile Include="ISysConfigServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\YTMS.Common.Core\YTMS.Common.Core.csproj">
+      <Project>{fb09703d-0e5e-468a-910c-45f77c9795d8}</Project>
+      <Name>YTMS.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YTMS.DAL\YTMS.DAL.csproj">
+      <Project>{a7dd8a14-c9b3-49ac-b2a5-027d63f06b39}</Project>
+      <Name>YTMS.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YTMS.Domain\YTMS.Domain.csproj">
+      <Project>{d32faaf0-312a-485e-b070-88c7337b1fa1}</Project>
+      <Name>YTMS.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
