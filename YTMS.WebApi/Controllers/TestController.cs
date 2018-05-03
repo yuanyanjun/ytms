@@ -21,5 +21,23 @@ namespace YTMS.WebApi.Controllers
         {
             return _sysCofigSever.Get();
         }
+
+        [HttpPost]
+        public dynamic SetConfig(SysConfigDto opt)
+        {
+
+            if (opt == null)
+                throw new ArgumentNullException("opt");
+
+            var dt = DateTime.Now;
+            opt.CreateBy = "yyj";
+            opt.CreateTime = dt;
+            opt.LastModifyBy = "yyj";
+            opt.LastModifyTime = dt;
+
+            _sysCofigSever.Set(opt);
+
+            return true;
+        }
     }
 }

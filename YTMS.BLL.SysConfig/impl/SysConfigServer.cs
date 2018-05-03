@@ -31,7 +31,10 @@ namespace YTMS.BLL.SysConfig
 
             using (var db = DBManager.GetInstance())
             {
-                bool isAdd = !opt.Id.HasValue;
+
+                var config = db.Queryable<T_Config>().ToList().FirstOrDefault();
+
+                bool isAdd = config == null;
 
                 if (isAdd)
                 {
@@ -49,7 +52,7 @@ namespace YTMS.BLL.SysConfig
                         RoomCoverMaxNum = opt.RoomCoverMaxNum,
                         LastModifyBy = opt.LastModifyBy,
                         LastModifyTime = opt.LastModifyTime
-                    }).Where(w => w.Id == opt.Id).ExecuteCommand();
+                    }).Where(w => w.Id == config.Id).ExecuteCommand();
                 }
 
                 return true;

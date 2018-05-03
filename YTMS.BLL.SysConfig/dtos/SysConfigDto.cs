@@ -8,5 +8,6 @@ namespace YTMS.BLL.SysConfig
 {
     public class SysConfigDto : YTMS.Domain.T_Config
     {
+
     }
 }
