@@ -43,11 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="dtos\OrderDto.cs" />
+    <Compile Include="dtos\OrderProductDto.cs" />
+    <Compile Include="impl\Class1.cs" />
+    <Compile Include="IOrderProductServer.cs" />
+    <Compile Include="IOrderServer.cs" />
+    <Compile Include="OrderQueryFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\YTMS.Common.Core\YTMS.Common.Core.csproj">
+      <Project>{fb09703d-0e5e-468a-910c-45f77c9795d8}</Project>
+      <Name>YTMS.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YTMS.DAL\YTMS.DAL.csproj">
+      <Project>{a7dd8a14-c9b3-49ac-b2a5-027d63f06b39}</Project>
+      <Name>YTMS.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YTMS.Domain\YTMS.Domain.csproj">
+      <Project>{d32faaf0-312a-485e-b070-88c7337b1fa1}</Project>
+      <Name>YTMS.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
