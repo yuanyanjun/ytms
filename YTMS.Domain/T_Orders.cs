@@ -19,6 +19,8 @@ namespace YTMS.Domain
 
         public string CardNo { get; set; }
 
+        public int CardType { get; set; }
+
         public DateTime EtaDate { get; set; }
 
         public DateTime DueoutDate { get; set; }

@@ -11,7 +11,12 @@ namespace YTMS.BLL.Order
 {
     public interface IOrderServer
     {
-        bool AddOrder(OrderDto order, List<OrderProductDto> items);
+        string AddOrder(OrderDto order, List<OrderProductDto> items);
+
+
+        bool Update(OrderDto order);
+
+        bool UpdateOrderStatus(string orderNo, OrderStatus status);
 
 
         OrderDto Get(string orderNo);
