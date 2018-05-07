@@ -50,16 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dtos\RoomCheckInDto.cs" />
+    <Compile Include="dtos\RoomRecordsDto.cs" />
+    <Compile Include="dtos\RoomReserveDto.cs" />
+    <Compile Include="dtos\RoomReserveItemDto.cs" />
     <Compile Include="Enums\Enums.cs" />
+    <Compile Include="impl\RoomOrderServer.cs" />
+    <Compile Include="IRoomOrderServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dtos\" />
-    <Folder Include="impl\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\YTMS.Common.Core\YTMS.Common.Core.csproj">
       <Project>{fb09703d-0e5e-468a-910c-45f77c9795d8}</Project>

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YTMS.Domain
+namespace YTMS.BLL.Order
 {
-    public class T_Room_Records
+    public class RoomReserveDto
     {
-        [SqlSugar.SugarColumn(IsOnlyIgnoreInsert = true)]
-        public long? Id { get; set; }
-
         /// <summary>
         /// 客人姓名
         /// </summary>
@@ -52,26 +49,6 @@ namespace YTMS.Domain
         public int Days { get; set; }
 
         /// <summary>
-        /// 客房ID
-        /// </summary>
-        public long RoomId { get; set; }
-
-        /// <summary>
-        /// 客房价格
-        /// </summary>
-        public decimal RoomPrice { get; set; }
-
-        /// <summary>
-        /// 押金
-        /// </summary>
-        public decimal Deposit { get; set; }
-
-        /// <summary>
-        /// 状态 0：预定  1：入住  2：退房
-        /// </summary>
-        public int Status { get; set; }
-
-        /// <summary>
         /// 创建人
         /// </summary>
         public string CreateBy { get; set; }
@@ -80,10 +57,5 @@ namespace YTMS.Domain
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }
-
-        /// <summary>
-        /// 是否删除
-        /// </summary>
-        public bool IsDeleted { get; set; }
     }
 }
