@@ -1,0 +1,36 @@
+﻿a {
+    text-decoration: none;
+    color: #2f5e9b;
+}
+
+.section {
+}
+
+    .section .container:after {
+        content: '';
+        display: black;
+        clear: both;
+    }
+
+    .section .container .aside {
+        float: left;
+    }
+
+        .section .container .aside .sub {
+            color: #666;
+            display: block;
+        }
+
+            .section .container .aside .sub:active {
+                color: #409eff;
+            }
+.section .container .panel {
+    position: absolute;
+    top: 0;
+    left: 180px;
+    right: 20px;
+    bottom: 20px;
+}
+.panel .filter_box {
+    position: relative;
+}
