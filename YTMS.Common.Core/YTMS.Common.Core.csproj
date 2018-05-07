@@ -48,9 +48,9 @@
   <ItemGroup>
     <Compile Include="Exceptions\CustomerException.cs" />
     <Compile Include="Helpers\AutoMapperHelper.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Helpers\HelpSup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
