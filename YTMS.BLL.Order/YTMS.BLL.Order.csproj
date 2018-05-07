@@ -50,19 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dtos\OrderDto.cs" />
-    <Compile Include="dtos\OrderProductDto.cs" />
-    <Compile Include="Enums\OrderEnums.cs" />
-    <Compile Include="impl\OrderServer.cs" />
-    <Compile Include="IOrderProductServer.cs" />
-    <Compile Include="IOrderServer.cs" />
-    <Compile Include="OrderQueryFilter.cs" />
+    <Compile Include="Enums\CardTypeEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="dtos\" />
+    <Folder Include="impl\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YTMS.Common.Core\YTMS.Common.Core.csproj">
       <Project>{fb09703d-0e5e-468a-910c-45f77c9795d8}</Project>

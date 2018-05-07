@@ -15,7 +15,7 @@ namespace YTMS.BLL.SysConfig
         {
             using (var db = DBManager.GetInstance())
             {
-                var data = db.Queryable<T_Config>().ToList().FirstOrDefault();
+                var data = db.Queryable<T_Configs>().ToList().FirstOrDefault();
 
                 if (data != null)
                     return data.MapTo<SysConfigDto>();
@@ -32,18 +32,18 @@ namespace YTMS.BLL.SysConfig
             using (var db = DBManager.GetInstance())
             {
 
-                var config = db.Queryable<T_Config>().ToList().FirstOrDefault();
+                var config = db.Queryable<T_Configs>().ToList().FirstOrDefault();
 
                 bool isAdd = config == null;
 
                 if (isAdd)
                 {
-                    var obj = opt.MapTo<T_Config>();
+                    var obj = opt.MapTo<T_Configs>();
                     db.Insertable(obj).ExecuteCommand();
                 }
                 else
                 {
-                    db.Updateable<T_Config>(new
+                    db.Updateable<T_Configs>(new
                     {
                         Proportion = opt.Proportion,
                         FixedLoss = opt.FixedLoss,

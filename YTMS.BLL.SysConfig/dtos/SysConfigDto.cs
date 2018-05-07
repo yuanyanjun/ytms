@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YTMS.BLL.SysConfig
 {
-    public class SysConfigDto : YTMS.Domain.T_Config
+    public class SysConfigDto : YTMS.Domain.T_Configs
     {
 
     }
