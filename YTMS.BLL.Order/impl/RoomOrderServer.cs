@@ -13,7 +13,7 @@ namespace YTMS.BLL.Order
     {
         private static object reserveLock = new object();
         private static object checkInLock = new object();
-      
+
 
         public bool Reserve(RoomReserveDto reserve, List<RoomReserveItemDto> rooms)
         {
@@ -33,7 +33,7 @@ namespace YTMS.BLL.Order
             if (!reserve.LeavingTime.HasValue)
                 throw new CustomerException("预离时间不能为空");
 
-            if(reserve.ArrvingTime.Value.Ticks>= reserve.LeavingTime.Value.Ticks)
+            if (reserve.ArrvingTime.Value.Ticks >= reserve.LeavingTime.Value.Ticks)
                 throw new CustomerException("预离时间必须晚于预抵时间");
 
             if (reserve.Days == 0)
@@ -61,7 +61,9 @@ namespace YTMS.BLL.Order
                         Status = (int)RecordStatus.Reserve,
                         UserName = reserve.UserName,
                         UserPhone = reserve.UserPhone,
-                        Deposit = row.Deposit
+                        Deposit = row.Deposit,
+                        LastModifyBy =reserve.LastModifyBy,
+                        LastModifyTime =reserve.LastModifyTime
                     });
 
                     try
@@ -102,7 +104,43 @@ namespace YTMS.BLL.Order
             if (checkin.Days == 0)
                 throw new CustomerException("入住天数必须大于零");
 
-            throw new NotImplementedException();
+            using (var db = DBManager.GetInstance())
+            {
+                var obj = new T_Room_Records()
+                {
+                    ArrvingTime = checkin.ArrvingTime,
+                    CardNo = checkin.CardNo,
+                    CardType = checkin.CardType,
+                    CreateBy = checkin.CreateBy,
+                    CreateTime = checkin.CreateTime,
+                    Days = checkin.Days,
+                    ExpiredTime = checkin.ExpiredTime,
+                    IsDeleted = false,
+                    LeavingTime = checkin.LeavingTime,
+                    RoomPrice = checkin.RoomPrice,
+                    RoomId = checkin.RoomId,
+                    Status = (int)RecordStatus.CheckIn,
+                    UserName = checkin.UserName,
+                    UserPhone = checkin.UserPhone,
+                    Deposit = checkin.Deposit,
+                    LastModifyBy = checkin.LastModifyBy,
+                    LastModifyTime = checkin.LastModifyTime
+                };
+
+                var count=0;
+                //直接入住
+                if (!checkin.ReserveId.HasValue)
+                {
+                   count =  db.Insertable(obj).ExecuteCommand();
+                }
+                else//预定转入住
+                {
+                    var lst = new List<string>() { "Id", "CreateBy", "CreateTime" };
+                    count = db.Updateable(obj).IgnoreColumns(it => lst.Contains(it)).Where(w=>w.Id==checkin.ReserveId.Value).ExecuteCommand();
+                }
+
+                return count > 0;
+            }
         }
     }
 }

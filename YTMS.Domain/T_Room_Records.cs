@@ -82,6 +82,16 @@ namespace YTMS.Domain
         public DateTime CreateTime { get; set; }
 
         /// <summary>
+        /// 最后修改人
+        /// </summary>
+        public string LastModifyBy { get; set; }
+
+        /// <summary>
+        /// 最后修改时间
+        /// </summary>
+        public DateTime LastModifyTime { get; set; }
+
+        /// <summary>
         /// 是否删除
         /// </summary>
         public bool IsDeleted { get; set; }

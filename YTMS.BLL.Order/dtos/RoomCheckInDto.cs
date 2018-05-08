@@ -20,6 +20,6 @@ namespace YTMS.BLL.Order
         /// <summary>
         /// 押金
         /// </summary>
-        public decimal? Deposit { get; set; }
+        public decimal Deposit { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YTMS.BLL.Room
+namespace YTMS.BLL.Order
 {
-    public class Class1
+    public interface IRoomServer
     {
     }
 }

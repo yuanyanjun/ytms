@@ -55,8 +55,10 @@
     <Compile Include="dtos\RoomReserveDto.cs" />
     <Compile Include="dtos\RoomReserveItemDto.cs" />
     <Compile Include="Enums\Enums.cs" />
+    <Compile Include="filters\RecordQueryFilter.cs" />
     <Compile Include="impl\RoomOrderServer.cs" />
     <Compile Include="IRoomOrderServer.cs" />
+    <Compile Include="IRoomServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

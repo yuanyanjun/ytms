@@ -57,5 +57,15 @@ namespace YTMS.BLL.Order
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 最后修改人
+        /// </summary>
+        public string LastModifyBy { get; set; }
+
+        /// <summary>
+        /// 最后修改时间
+        /// </summary>
+        public DateTime LastModifyTime { get; set; }
     }
 }
