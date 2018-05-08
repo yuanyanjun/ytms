@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace YTMS.BLL.Account
 {
-    public class Class1
+    public class AdminDto : YTMS.Domain.T_Admins
     {
+       
     }
 }

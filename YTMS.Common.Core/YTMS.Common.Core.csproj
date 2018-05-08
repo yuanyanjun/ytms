@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Exceptions\CustomerException.cs" />
     <Compile Include="Ext\DateTimeExt.cs" />
+    <Compile Include="Ext\RegExt.cs" />
+    <Compile Include="Ext\StringExt.cs" />
     <Compile Include="Helpers\AutoMapperHelper.cs" />
     <Compile Include="Helpers\HelpSup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

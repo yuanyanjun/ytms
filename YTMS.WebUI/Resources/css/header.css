@@ -1,5 +1,5 @@
-﻿ .top {
-        position: fixed;
+﻿.top {
+    /*position: fixed;
         left: 0;
         top: 0;
         width: 100%;
@@ -8,25 +8,35 @@
         color: #fff;
         height: 26px;
         line-height: 26px;
-        overflow: hidden;
+        overflow: hidden;*/
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #409eff;
+    color: #fff;
+    height: 26px;
+    line-height: 26px;
+    overflow: hidden;
+}
+
+    .top .left {
+        float: left;
+        margin-left: 20px;
     }
 
-        .top .left {
-            float: left;
-            margin-left: 20px;
-        }
+    .top .right {
+        float: right;
+        margin-right: 20px;
+    }
 
-        .top .right {
-            float: right;
-            margin-right: 20px;
-        }
+    .top .left .g {
+        margin-right: 30px;
+    }
 
-        .top .left .g {
-            margin-right: 30px;
-        }
-
-        .top .right .check_out {
-            cursor: pointer;
-            margin-left: 30px;
-            color: #fff;
-        }
+    .top .right .check_out {
+        cursor: pointer;
+        margin-left: 30px;
+        color: #fff;
+    }
