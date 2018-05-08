@@ -1,0 +1,31 @@
+﻿
+@model List<LeftMenuViewModel>
+
+@{
+    int active = 0;
+    var hasVal = Model != null && Model.GetEnumerator().MoveNext();
+    if (hasVal)
+    {
+        var slt = Model.SingleOrDefault(i => i.IsSelected);
+        if (slt != null)
+        {
+            active = slt.MenuId;
+        }
+    }
+}
+
+@if (Model != null && Model.GetEnumerator().MoveNext())
+{
+    <el-menu class="el-menu-vertical-demo" default-active="@active">
+        @foreach (var item in Model)
+        {
+            <el-menu-item index="@item.MenuId">
+                <a href="@item.Href" class="sub">
+                    <i class="@(string.IsNullOrWhiteSpace(item.ClassStyle)?"el-icon-menu":item.ClassStyle )"></i>
+                    <span>@item.Text</span>
+                </a>
+            </el-menu-item>
+        }
+    </el-menu>
+}
+

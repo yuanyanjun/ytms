@@ -1,0 +1,81 @@
+﻿.section .panel .outer {
+    background-color: #efefef;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+/*.form{
+                width: 630px;
+                margin: 80px auto 0;
+                .tab{
+                    display: inline-block;
+                    width: 100px;
+                    text-align: right;
+                }
+                .s{
+                    margin: 8px 0;
+                    .short{
+                        width: 94px;
+                    }
+                    .medium{
+                        width: 187px;
+                    }
+                    .long{
+                        width: 200px;
+                    }
+					.co_red{
+						margin-left: 5px;
+						position: relative;
+						top: 2px;
+					}
+					.tip{
+						font-size: 12px;
+						color: #999;
+					}
+                }
+                .btn{
+                    margin-top: 30px;  
+					padding-left: 170px;
+                }*/
+.section .panel .form {
+    width: 630px;
+    margin: 80px auto 0;
+}
+
+    .section .panel .form .tab {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+    }
+
+.section .panel .form .s {
+    margin: 8px 0;
+}
+
+    .section .panel .form .s .short {
+        width: 94px;
+    }
+
+    .section .panel .form .s .medium {
+        width: 187px;
+    }
+
+    .section .panel .form .s .long {
+        width: 200px;
+    }
+
+    .section .panel .form .s .co_red {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
+
+    .section .panel .form .s .tip {
+        font-size: 12px;
+        color: #999;
+    }
+
+    .section .panel .form .btn {
+        margin-top: 30px;
+        padding-left: 170px;
+    }

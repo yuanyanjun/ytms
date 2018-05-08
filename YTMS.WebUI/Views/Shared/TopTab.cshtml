@@ -1,0 +1,12 @@
+﻿@model int
+
+<div style="margin-bottom:20px;">
+    <el-menu default-active="@Model" class="el-menu-demo" mode="horizontal">
+        <el-menu-item index="1">
+            <a href="@WebPath.Url("~/Setting/Index")" class="sub" style="display:block;">系统设置</a>
+        </el-menu-item>
+        <el-menu-item index="2">
+            <a href="@WebPath.Url("~/Home/Index")" class="sub" style="display:block;">工作台</a>
+        </el-menu-item>
+    </el-menu>
+</div>

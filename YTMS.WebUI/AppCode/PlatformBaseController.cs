@@ -28,13 +28,13 @@ namespace YTMS.WebUI
                 if (!IsAjaxRequest)
                 {
                     var sessionid = req.QueryString["sessionid"];
-
+                    sessionid = StringExt.Base64Encode("1", null);
                     if (!string.IsNullOrWhiteSpace(sessionid))
                     {
                         CreateSession(sessionid);
                     }
 
-
+                    
                 }
 
                 //保持会话
@@ -45,7 +45,7 @@ namespace YTMS.WebUI
                     {
                         if (IsAjaxRequest)
                             throw new CustomException("当前用户已掉线，请重新登录");
-                        _gourl =System.Configuration.ConfigurationManager.AppSettings.Get("CurrentWebBaseUrl").TrimEnd('/') + "/Login";
+                        _gourl = System.Configuration.ConfigurationManager.AppSettings.Get("CurrentWebBaseUrl").TrimEnd('/') + "/Login";
                     }
 
                 }
@@ -54,6 +54,14 @@ namespace YTMS.WebUI
             {
                 _ex = ex;
             }
+        }
+
+        
+
+        protected override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            filterContext.Controller.ViewBag.CurrentAccount = SessionUser;
+            base.OnResultExecuting(filterContext);
         }
 
         protected bool IsLogin
@@ -133,7 +141,7 @@ namespace YTMS.WebUI
         string _goUrl;
         Exception _error;
         bool _isAjaxReq;
-       
+
 
         public CustomActionInvoker(string url, Exception error, bool isAjaxReq)
             : base()

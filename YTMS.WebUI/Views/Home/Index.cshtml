@@ -12,7 +12,8 @@
     <div id="app">
         @{Html.RenderPartial("Header"); }
         <div class="section">
-            <div style="margin-bottom:20px;">
+            @{Html.RenderPartial("TopTab", 2); }
+            @*<div style="margin-bottom:20px;">
                 <el-menu default-active="2" class="el-menu-demo" mode="horizontal">
                     <el-menu-item index="1">
                         <a href="#" class="sub" style="display:block;">系统设置</a>
@@ -21,7 +22,7 @@
                         <a href="#" class="sub" style="display:block;">工作台</a>
                     </el-menu-item>
                 </el-menu>
-            </div>
+            </div>*@
             <div class="container">
                 <div class="aside">
                     <el-menu class="el-menu-vertical-demo">

@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace YTMS.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : PlatformBaseController
     {
         // GET: Home
         public ActionResult Index()
         {
+            
             return View();
         }
     }
