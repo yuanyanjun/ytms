@@ -52,6 +52,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -100,6 +101,7 @@
     <Content Include="Resources\css\header.css" />
     <Content Include="Resources\css\index.css" />
     <Content Include="Resources\css\message.css" />
+    <Content Include="Resources\css\roomtype.css" />
     <Content Include="Resources\css\setting.css" />
     <Content Include="Resources\element-ui\lib\alert.js" />
     <Content Include="Resources\element-ui\lib\aside.js" />
@@ -440,6 +442,8 @@
     <Content Include="Resources\js\common.js" />
     <Content Include="Resources\js\jquery-1.9.0.min.js" />
     <Content Include="Resources\js\message.js" />
+    <Content Include="Resources\js\room\roomtype.js" />
+    <Content Include="Resources\js\setting\index.js" />
     <Content Include="Resources\js\vue.js" />
     <Content Include="Resources\js\vue.min.js" />
     <Content Include="Web.config" />
@@ -455,6 +459,7 @@
     <Compile Include="AppCode\XmlResultcs.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomMgrController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -479,6 +484,7 @@
     <Content Include="Views\Shared\LeftMenu.cshtml" />
     <Content Include="Views\Shared\TopTab.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\RoomMgr\RoomType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -496,6 +502,10 @@
     <ProjectReference Include="..\YTMS.BLL.Account\YTMS.BLL.Account.csproj">
       <Project>{bf027130-e2b2-4466-8cce-b209d4e5a0e6}</Project>
       <Name>YTMS.BLL.Account</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YTMS.BLL.Room\YTMS.BLL.Room.csproj">
+      <Project>{d07a7add-0af7-4b82-aa6f-0e9af06b0a2c}</Project>
+      <Name>YTMS.BLL.Room</Name>
     </ProjectReference>
     <ProjectReference Include="..\YTMS.BLL.SysConfig\YTMS.BLL.SysConfig.csproj">
       <Project>{3518c609-0b17-46d7-9cf2-b3aac34ea3be}</Project>

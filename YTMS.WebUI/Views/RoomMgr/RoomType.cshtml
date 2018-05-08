@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "房型项目管理";
+
+}
+@section Style{
+
+    @Html.RefCss("css/header.css")
+    @Html.RefCss("css/roomtype.css")
+}
+@section Body{
+    <div id="app">
+        @{Html.RenderPartial("Header"); }
+        <div class="section">
+            @{Html.RenderPartial("TopTab", 1); }
+            <div class="container">
+                <div class="aside">
+                   @{Html.RenderPartial("LeftMenu", new LeftMenuViewModel() { MenuType = MenuTypeEnum.SystemConfig, ActionMenuId = 2 }); }
+
+                </div>
+                <div class="panel ">
+                    <div class="table">
+                        <el-table :data="tableData" style="width: 100%">
+                            <el-table-column prop=""  label="项目编号">
+                                <template slot-scope="scope">
+                                    <span>{{scope.$index+1}}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="项目名称" width="200">
+                                <template slot-scope="scope">
+                                    <span v-show="!scope.row.isEdit">{{scope.row.Name}}</span>
+                                    <el-input v-model="scope.row.Name" size="mini" class="long" v-show="scope.row.isEdit" placeholder="项目名称"></el-input>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="排序号">
+                                <template slot-scope="scope">
+                                    <span v-show="!scope.row.isEdit">{{scope.row.Sort}}</span>
+                                    <el-input v-model="scope.row.Sort" size="mini" class="short" v-show="scope.row.isEdit" placeholder="排序号"></el-input>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="CreateBy"  label="创建人"></el-table-column>
+                            <el-table-column prop="CreateTime"  label="创建时间"></el-table-column>
+                            <el-table-column width="120" label="操作">
+                                <template slot-scope="scope">
+                                    <i v-show="!scope.row.isEdit" class="el-icon-edit icon co_blue" ></i>
+                                    <i v-show="!scope.row.isEdit" class="el-icon-delete icon co_red" ></i>
+                                    <i v-show="scope.row.isEdit" class="el-icon-check icon co_green"></i>
+                                    <i v-show="scope.row.isEdit" class="el-icon-minus icon co_red"></i>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                        <el-dialog title="提示" visible.sync="dialogVisible" width="25%">
+                            <span>确定要删除【】的信息吗？</span>
+                            <span slot="footer" class="dialog-footer">
+                                <el-button size="mini" >取 消</el-button>
+                                <el-button size="mini" type="primary" >确 定</el-button>
+                            </span>
+                        </el-dialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+@section Script{
+    @Html.RefScript("js/room/roomtype.js");
+}

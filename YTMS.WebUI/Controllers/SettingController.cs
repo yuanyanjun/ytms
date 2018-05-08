@@ -24,8 +24,46 @@ namespace YTMS.WebUI.Controllers
         public ActionResult GetSysConfig()
         {
             var data = _sysConfigServer.Get();
-
+            if (data == null)
+                data = InitConfig();
             return JsonContent(data);
+        }
+
+        [HttpPost, ActionExceptionHandler]
+        public ActionResult SetSysConfig(SysConfigDto dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException("config");
+
+            dto.CreateBy = dto.LastModifyBy = SessionUser.Id.ToString();
+            dto.CreateTime = dto.LastModifyTime = DateTime.Now;
+
+            _sysConfigServer.Set(dto);
+
+            return JsonContent(true);
+        }
+
+
+        private SysConfigDto InitConfig()
+        {
+            var userId = SessionUser.Id.ToString();
+            var dt = DateTime.Now;
+            var cfg = new SysConfigDto()
+            {
+                Proportion = 3,
+                FixedLoss = 40,
+                PlatformPoint = 15,
+                FloorEarnings = 1600,
+                RoomCoverMaxNum = 2,
+                CreateBy = userId,
+                LastModifyBy = userId,
+                CreateTime = dt,
+                LastModifyTime = dt
+            };
+
+            _sysConfigServer.Set(cfg);
+
+            return cfg;
         }
     }
 }

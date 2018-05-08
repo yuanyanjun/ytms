@@ -1,16 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "首页";
+    ViewBag.Title = "全局信息设置";
 
-    var menuList = new List<LeftMenuViewModel>()
-    {
-        new LeftMenuViewModel(){ MenuId=1, Text="全局信息设置", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu", IsSelected=true },
-        new LeftMenuViewModel(){ MenuId=2, Text="房型项目管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
-        new LeftMenuViewModel(){ MenuId=3, Text="用户管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
-        new LeftMenuViewModel(){ MenuId=4, Text="业主管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
-        new LeftMenuViewModel(){ MenuId=5, Text="客房管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
-        new LeftMenuViewModel(){ MenuId=6, Text="标签管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" }
-    };
 }
 @section Style{
 
@@ -24,7 +15,7 @@
             @{Html.RenderPartial("TopTab", 1); }
             <div class="container">
                 <div class="aside">
-                    @{Html.RenderPartial("LeftMenu", menuList); }
+                    @{Html.RenderPartial("LeftMenu", new LeftMenuViewModel() { MenuType = MenuTypeEnum.SystemConfig, ActionMenuId = 1 }); }
 
                 </div>
                 <div class="panel ">
@@ -60,7 +51,7 @@
                                 <b class="co_red">*</b>
                             </div>
                             <div class="btn">
-                                <el-button size="medium" type="warning">保存</el-button>
+                                <el-button size="medium" type="warning" v-on:click="set">保存</el-button>
                             </div>
                         </div>
                     </div>
@@ -71,39 +62,5 @@
     </div>
 }
 @section Script{
-    <script>
-         var vm= new Vue({
-            el: '#app',
-            data: {
-                configData: {
-                    Proportion: null,
-                    FixedLoss: 0.00,
-                    PlatformPoint: 0,
-                    FloorEarnings: 0.00,
-                    RoomCoverMaxNum: 2
-                }
-            },
-            computed: {},
-            methods: {
-                get: function () {
-                    $.get(buildUrl('~/Setting/GetSysConfig'), {}, function (res) {
-                       
-                        if (res.error) {
-                            Msg.alert(res.error.message);
-                            return;
-                        }
-                        
-                        if (res.value) {
-                            vm.configData = res.value;
-                           
-                            Msg.prompt('保存成功');
-                        }
-                    });
-                }
-            },
-            created: function () {
-                this.get();
-            }
-        })
-    </script>
+    @Html.RefScript("js/setting/index.js");
 }

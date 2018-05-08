@@ -13,39 +13,9 @@
         @{Html.RenderPartial("Header"); }
         <div class="section">
             @{Html.RenderPartial("TopTab", 2); }
-            @*<div style="margin-bottom:20px;">
-                <el-menu default-active="2" class="el-menu-demo" mode="horizontal">
-                    <el-menu-item index="1">
-                        <a href="#" class="sub" style="display:block;">系统设置</a>
-                    </el-menu-item>
-                    <el-menu-item index="2">
-                        <a href="#" class="sub" style="display:block;">工作台</a>
-                    </el-menu-item>
-                </el-menu>
-            </div>*@
             <div class="container">
                 <div class="aside">
-                    <el-menu class="el-menu-vertical-demo">
-                        <el-menu-item index="1">
-                            <a href="#" class="sub">
-                                <i class="el-icon-menu"></i>
-                                <span>预定</span>
-                            </a>
-                        </el-menu-item>
-
-                        <el-menu-item index="4">
-                            <a href="#" class="sub">
-                                <i class="el-icon-edit-outline"></i>
-                                <span>水电气录入</span>
-                            </a>
-                        </el-menu-item>
-                        <el-menu-item index="5">
-                            <a href="#" class="sub">
-                                <i class="el-icon-tickets"></i>
-                                <span>月结账</span>
-                            </a>
-                        </el-menu-item>
-                    </el-menu>
+                    @{Html.RenderPartial("LeftMenu", new LeftMenuViewModel() { MenuType = MenuTypeEnum.WorkingTab, ActionMenuId = 1 }); }
                 </div>
                 <div class="panel home"></div>
             </div>

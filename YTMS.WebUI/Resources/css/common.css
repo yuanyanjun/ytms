@@ -47,10 +47,6 @@ a {
             bottom: 20px;
         }
 
-.panel .filter_box {
-    position: relative;
-}
-
 
 .section .container .aside .is-active .sub {
     color: #409eff;
@@ -58,4 +54,17 @@ a {
 
 .el-menu-item.is-active {
     color: #409eff;
+}
+
+.el-icon-edit:before {
+    content: "\E61C";
+}
+.el-icon-delete:before {
+    content: "\E612";
+}
+.el-icon-check:before {
+    content: "\E611";
+}
+.el-icon-minus:before {
+    content: "\E621";
 }

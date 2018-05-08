@@ -1,23 +1,35 @@
 ﻿
-@model List<LeftMenuViewModel>
+@model LeftMenuViewModel
 
 @{
-    int active = 0;
-    var hasVal = Model != null && Model.GetEnumerator().MoveNext();
-    if (hasVal)
+    var sysMenuList = new List<LeftMenuItem>()
     {
-        var slt = Model.SingleOrDefault(i => i.IsSelected);
-        if (slt != null)
-        {
-            active = slt.MenuId;
-        }
-    }
+        new LeftMenuItem(){ MenuId=1, Text="全局信息设置", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu"},
+        new LeftMenuItem(){ MenuId=2, Text="房型项目管理", Href= WebPath.Url("~/RoomMgr/RoomType"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=3, Text="用户管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=4, Text="业主管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=5, Text="客房管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=6, Text="标签管理", Href= WebPath.Url("~/Setting/Index"), ClassStyle="el-icon-menu" }
+    };
+
+    var tableMenuList = new List<LeftMenuItem>()
+    {
+        new LeftMenuItem(){ MenuId=1, Text="实时房态", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=2, Text="预定", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu"},
+        new LeftMenuItem(){ MenuId=3, Text="入住", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=4, Text="退房", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=5, Text="水电气录入", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu" },
+        new LeftMenuItem(){ MenuId=6, Text="月结账", Href= WebPath.Url("~/#"), ClassStyle="el-icon-menu" }
+    };
+
+    var menuList = Model.MenuType == MenuTypeEnum.SystemConfig ? sysMenuList : tableMenuList;
+
 }
 
-@if (Model != null && Model.GetEnumerator().MoveNext())
+@if (menuList != null && menuList.GetEnumerator().MoveNext())
 {
-    <el-menu class="el-menu-vertical-demo" default-active="@active">
-        @foreach (var item in Model)
+    <el-menu class="el-menu-vertical-demo" default-active="@Model.ActionMenuId">
+        @foreach (var item in menuList)
         {
             <el-menu-item index="@item.MenuId">
                 <a href="@item.Href" class="sub">

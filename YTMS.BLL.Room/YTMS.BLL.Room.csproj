@@ -53,7 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dtos\RoomTypeDto.cs" />
+    <Compile Include="impl\RoomTypeServer.cs" />
     <Compile Include="IRoomServer.cs" />
+    <Compile Include="IRoomTypeServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,9 +76,6 @@
       <Name>YTMS.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dtos\" />
-    <Folder Include="impl\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

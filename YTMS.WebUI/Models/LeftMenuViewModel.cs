@@ -5,7 +5,15 @@ using System.Web;
 
 namespace YTMS.WebUI
 {
+
     public class LeftMenuViewModel
+    {
+        public MenuTypeEnum MenuType { get; set; }
+
+        public int ActionMenuId { get; set; }
+    }
+
+    public class LeftMenuItem
     {
         public int MenuId { get; set; }
 
@@ -13,8 +21,13 @@ namespace YTMS.WebUI
 
         public string Text { get; set; }
 
-        public bool IsSelected { get; set; }
 
         public string ClassStyle { get; set; }
+    }
+
+    public enum MenuTypeEnum
+    {
+        SystemConfig,
+        WorkingTab
     }
 }
