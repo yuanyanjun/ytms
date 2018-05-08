@@ -39,7 +39,7 @@ namespace YTMS.BLL.Order
             if (reserve.Days == 0)
                 throw new CustomerException("预定天数必须大于零");
 
-            //验证客服是否可预定
+            //验证客房是否可预定
 
             lock (reserveLock)
             {
@@ -62,8 +62,8 @@ namespace YTMS.BLL.Order
                         UserName = reserve.UserName,
                         UserPhone = reserve.UserPhone,
                         Deposit = row.Deposit,
-                        LastModifyBy =reserve.LastModifyBy,
-                        LastModifyTime =reserve.LastModifyTime
+                        LastModifyBy = reserve.LastModifyBy,
+                        LastModifyTime = reserve.LastModifyTime
                     });
 
                     try
@@ -127,19 +127,100 @@ namespace YTMS.BLL.Order
                     LastModifyTime = checkin.LastModifyTime
                 };
 
-                var count=0;
+                var count = 0;
                 //直接入住
                 if (!checkin.ReserveId.HasValue)
                 {
-                   count =  db.Insertable(obj).ExecuteCommand();
+                    count = db.Insertable(obj).ExecuteCommand();
                 }
                 else//预定转入住
                 {
                     var lst = new List<string>() { "Id", "CreateBy", "CreateTime" };
-                    count = db.Updateable(obj).IgnoreColumns(it => lst.Contains(it)).Where(w=>w.Id==checkin.ReserveId.Value).ExecuteCommand();
+                    count = db.Updateable(obj).IgnoreColumns(it => lst.Contains(it)).Where(w => w.Id == checkin.ReserveId.Value).ExecuteCommand();
                 }
 
                 return count > 0;
+            }
+        }
+
+        public List<RoomRecordsDto> GetRecordList(RecordQueryFilter filter)
+        {
+            if (filter == null)
+                return null;
+            using (var db = DBManager.GetInstance())
+            {
+                var q = db.Queryable<T_Room_Records>().Where(w => w.IsDeleted == false);
+
+                var start = filter.StartTime.ToCurrentDayMinVal();
+                var end = filter.EndTime.ToCurrentDayMaxVal();
+
+                q = q.Where(w => w.ArrvingTime >= start && w.LeavingTime <= end);
+
+                if (filter.RoomIds != null && filter.RoomIds.Count > 0)
+                    q = q.Where(w => filter.RoomIds.Contains(w.RoomId));
+
+                return q.ToList().MapToList<RoomRecordsDto>();
+            }
+        }
+
+        public bool CheckOut(long recordId, decimal thirdPercent, List<RoomCheckOutDto> checkouts)
+        {
+            if (checkouts == null && checkouts.Count == 0)
+                throw new CustomerException("未产生任何房费");
+
+            using (var db = DBManager.GetInstance())
+            {
+                var record = db.Queryable<T_Room_Records>().Where(w => w.Id == recordId).Single();
+                if (record == null || record.IsDeleted)
+                    throw new CustomerException("入住记录不存在，操作失败");
+
+                if (record.Status != (int)RecordStatus.CheckIn)
+                    throw new CustomerException("该客房还未入住货已退房，操作失败");
+
+                try
+                {
+                    db.Ado.BeginTran();
+
+                    //修改记录状态
+                    var status = (int)RecordStatus.CheckOut;
+                    db.Updateable<T_Room_Records>(new
+                    {
+                        Status = status
+                    }).Where(w => w.Id == recordId).ExecuteCommand();
+
+                    //写入消费记录
+                    var objs = checkouts.MapToList<T_Room_Consumed_Records>();
+                    db.Insertable(objs).ExecuteCommand();
+
+                    //写入退房结算记录 跨月拆分结算记录
+                    var settlesList = checkouts.GroupBy(i => new { i.Year, i.Month }).Select(group => new T_Room_Checkout_Settles()
+                    {
+                        RecordId = recordId,
+                        Year = group.Key.Year,
+                        Month = group.Key.Month,
+                        RoomId = record.RoomId,
+                        TotalAmount = group.Sum(item => item.Monetary),
+                        ThirdPercent = thirdPercent,
+                        WastageAmount = group.Sum(item => item.WastageFee),
+                        ExtraFee = group.Sum(item => item.ExtraFee)
+                    }).ToList();
+
+                    settlesList.ForEach(item =>
+                    {
+                        item.ThirdFee = item.TotalAmount * item.ThirdPercent;
+                        item.ActualAmount = item.TotalAmount - item.ThirdFee - item.WastageAmount;
+                    });
+
+                    db.Insertable(settlesList).ExecuteCommand();
+                    db.Ado.CommitTran();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    db.Ado.RollbackTran();
+                    throw ex;
+                }
             }
         }
     }

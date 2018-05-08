@@ -22,9 +22,19 @@ namespace YTMS.BLL.Order
         bool CheckIn(RoomCheckInDto checkin);
 
         /// <summary>
+        /// 获取记录列表
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        List<RoomRecordsDto> GetRecordList(RecordQueryFilter filter);
+
+        /// <summary>
         /// 退房
         /// </summary>
+        /// <param name="recordId"></param>
+        /// <param name="thirdPercent"></param>
+        /// <param name="checkouts"></param>
         /// <returns></returns>
-        //bool CheckOut();
+        bool CheckOut(long recordId, decimal thirdPercent, List<RoomCheckOutDto> checkouts);
     }
 }

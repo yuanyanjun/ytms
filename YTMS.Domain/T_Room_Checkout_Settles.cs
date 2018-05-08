@@ -52,9 +52,16 @@ namespace YTMS.Domain
         public decimal ThirdFee { get; set; }
 
         /// <summary>
+        /// 第三方扣点比例
+        /// </summary>
+        public decimal ThirdPercent { get; set; }
+
+        /// <summary>
         ///实际盈利 = 总收入 - 固定损耗 - 第三方费用
         /// </summary>
         public decimal ActualAmount { get; set; }
+
+       
 
         /// <summary>
         /// 创建人

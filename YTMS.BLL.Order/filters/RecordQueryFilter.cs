@@ -9,5 +9,10 @@ namespace YTMS.BLL.Order
 {
     public class RecordQueryFilter : QueryFilter
     {
+        public DateTime StartTime { get; set; }
+
+        public DateTime EndTime { get; set; }
+
+        public List<long> RoomIds { get; set; }
     }
 }

@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dtos\RoomCheckInDto.cs" />
+    <Compile Include="dtos\RoomCheckOutDto.cs" />
+    <Compile Include="dtos\RoomCheckOutSettlesDto.cs" />
     <Compile Include="dtos\RoomRecordsDto.cs" />
     <Compile Include="dtos\RoomReserveDto.cs" />
     <Compile Include="dtos\RoomReserveItemDto.cs" />
