@@ -39,6 +39,19 @@ namespace YTMS.BLL.Room
             }
         }
 
+        public bool ExistName(string name, int? id)
+        {
+            using (var db = DBManager.GetInstance())
+            {
+                var q = db.Queryable<T_Room_Types>().Where(w => w.Name == name);
+
+                if (id.HasValue)
+                    q = q.Where(w => w.Id != id);
+
+                return q.Any();
+            }
+        }
+
         public RoomTypeDto Get(int id)
         {
             using (var db = DBManager.GetInstance())
@@ -51,7 +64,7 @@ namespace YTMS.BLL.Room
         {
             using (var db = DBManager.GetInstance())
             {
-                var q =  db.Queryable<T_Room_Types>().Where(w => !SqlSugar.SqlFunc.HasValue(w.DeletedTime));
+                var q = db.Queryable<T_Room_Types>().Where(w => !SqlSugar.SqlFunc.HasValue(w.DeletedTime)).OrderBy(w => w.Sort);
 
                 return q.ToList().MapToList<RoomTypeDto>();
             }

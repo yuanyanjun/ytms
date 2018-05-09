@@ -47,5 +47,14 @@ namespace YTMS.BLL.Room
         /// </summary>
         /// <returns></returns>
         List<RoomTypeDto> List(List<int> ids);
+
+
+        /// <summary>
+        /// 验证名称是否存在
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        bool ExistName(string name, int? id);
     }
 }

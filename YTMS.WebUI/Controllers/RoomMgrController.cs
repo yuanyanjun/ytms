@@ -27,11 +27,40 @@ namespace YTMS.WebUI.Controllers
             return View();
         }
         [HttpGet, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
-        public ActionResult GetList()
+        public ActionResult GetRoomTypeList()
         {
             var data = _roomTypeServer.List();
 
             return JsonContent(data);
+        }
+
+        [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
+        public ActionResult SaveRoomType(RoomTypeDto dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException("dto");
+
+            var isAdd = !dto.Id.HasValue;
+
+            if (_roomTypeServer.ExistName(dto.Name, dto.Id))
+                throw new CustomException("房型名称已存在");
+
+            dto.CreateBy = SessionUser.Account;
+            dto.CreateTime = dto.LastModifyTime = DateTime.Now;
+
+            if (isAdd)
+                dto.Id = _roomTypeServer.Add(dto);
+            else
+                _roomTypeServer.Edit(dto);
+            return JsonContent(dto);
+        }
+
+        [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
+        public ActionResult DeleteRoomType(int id)
+        {
+            _roomTypeServer.Remove(id);
+
+            return JsonContent(true);
         }
     }
 }
