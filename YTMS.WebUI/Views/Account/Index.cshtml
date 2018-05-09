@@ -19,7 +19,99 @@
 
                 </div>
                 <div class="panel ">
-                   
+                    <div class="head">
+                        <div class="search">
+                            关键字：<el-input v-model="keyword" size="mini" placeholder="请输入内容"></el-input>
+                            <el-button size="mini" type="primary" v-on:click="getList()">搜索</el-button>
+                        </div>
+                        <el-button class="btn" size="mini" type="warning" v-on:click="showAdminOptView()">新增</el-button>
+                    </div>
+                    <div class="table">
+                        <el-table :data="tableData" style="width: 100%">
+                            <el-table-column prop="Name" label="姓名"></el-table-column>
+                            <el-table-column prop="Sex" label="性别"></el-table-column>
+                            <el-table-column prop="Phone" label="手机号码"></el-table-column>
+                            <el-table-column prop="Account" label="登录账号"></el-table-column>
+                            <el-table-column prop="WxChat" label="微信号"></el-table-column>
+                            @*<el-table-column prop="Type" label="账号类型"></el-table-column>*@
+                            <el-table-column prop="CreateBy" label="创建人"></el-table-column>
+                            <el-table-column width="160" prop="CreateTime" label="创建时间"></el-table-column>
+                            <el-table-column width="140" label="操作">
+                                <template slot-scope="scope">
+                                    <i class="el-icon-view icon" v-on:click="editPwd(scope.row)"></i>
+                                    <!--<i class="el-icon-setting icon" v-on:click="dialogAuthorityVisible=true"></i>-->
+                                    <i class="el-icon-edit icon" v-on:click="showAdminOptView(scope.row,scope.$index)"></i>
+                                    <i class="el-icon-delete icon" v-on:click="deleteAdmin(scope.row)"></i>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </div>
+                    <div class="pagin">
+                        <el-pagination background layout="prev, pager, next" :total="totalCount" :page-size="pageSize" current-change="flipPage"></el-pagination>
+                    </div>
+
+                    <div class="add_panel">
+                        <el-dialog title="新增用户" :visible.sync="dialogFormVisible">
+                            <el-form :model="form" style="display: block;margin: auto;">
+                                <el-form-item label="登录账号：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.Account" minlength="1" auto-complete="off" size="mini"></el-input>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="登录密码：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.Password" minlength="1" type="password" auto-complete="off" size="mini"></el-input>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="重复密码：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.Confirm" minlength="1" type="password" auto-complete="off" size="mini"></el-input>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="真实姓名：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.Name" minlength="1" auto-complete="off" size="mini"></el-input>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="性别：" :label-width="formLabelWidth">
+                                    <el-select v-model="form.Sex" size="mini">
+                                        <el-option label="男" value="male"></el-option>
+                                        <el-option label="女" value="famale"></el-option>
+                                    </el-select>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="手机号码：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.Phone" auto-complete="off" size="mini"></el-input>
+                                    <span class="co_red">*</span>
+                                </el-form-item>
+                                <el-form-item label="微信号：" :label-width="formLabelWidth">
+                                    <el-input v-model="form.wxchat" minlength="1" auto-complete="off" size="mini"></el-input>
+                                </el-form-item>
+                            </el-form>
+                            <div slot="footer" class="dialog-footer">
+                                <el-button size="mini" v-on:click="closeOptView">取 消</el-button>
+                                <el-button size="mini" type="primary" v-on:click="save">确 定</el-button>
+                            </div>
+                        </el-dialog>
+                    </div>
+
+                   @* <div class="reset_panel">
+        <el-dialog title="重置密码" :visible.sync="dialogResetVisible">
+            <el-form :model="form" style="display: block;margin: auto;">
+                <el-form-item label="登录账号：" :label-width="formLabelWidth">
+                    <b>{{currentAccount}}</b>
+                </el-form-item>
+                <el-form-item label="新密码：" :label-width="formLabelWidth">
+                    <el-input v-model="form2.pwd" auto-complete="off" size="mini"></el-input>
+                    <span class="co_red">*</span>
+                </el-form-item>
+                <el-form-item label="确认密码：" :label-width="formLabelWidth">
+                    <el-input v-model="form2.repwd" auto-complete="off" size="mini"></el-input>
+                    <span class="co_red">*</span>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button v-on:click="closeEditPwd">取 消</el-button>
+                <el-button type="primary" v-on:click="qrEditPwd">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>*@
                 </div>
             </div>
         </div>

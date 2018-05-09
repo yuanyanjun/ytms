@@ -117,7 +117,7 @@ namespace YTMS.BLL.Account
                 var q = db.Queryable<T_Admins>();
 
                 if (!string.IsNullOrWhiteSpace(filter.Keywords))
-                    q = q.Where(w => w.Name.Equals(filter.Keywords));
+                    q = q.Where(w => w.Name.Equals(filter.Keywords) || w.Account.Equals(filter.Keywords));
 
                 if (filter.IsDeleted.HasValue && filter.IsDeleted.Value)
                 {
