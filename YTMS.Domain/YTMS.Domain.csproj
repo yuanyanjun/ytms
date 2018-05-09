@@ -55,6 +55,7 @@
     <Compile Include="T_Room_Owner_Month_Settles.cs" />
     <Compile Include="T_Room_Records.cs" />
     <Compile Include="T_Room_Reserve_Items.cs" />
+    <Compile Include="T_Room_Tags.cs" />
     <Compile Include="T_Room_Types.cs" />
   </ItemGroup>
   <ItemGroup>

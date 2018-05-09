@@ -1,0 +1,38 @@
+﻿.section .container .panel {
+    overflow-y: auto;
+}
+
+    .section .container .panel .long {
+        width: 180px;
+    }
+
+    .section .container .panel .short {
+        width: 100px;
+    }
+
+    .section .container .panel .table .icon {
+        margin-right: 6px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+    .section .container .panel .el-icon-check {
+        font-weight: bold;
+    }
+
+    .section .container .panel .el-icon-minus {
+        font-weight: bold;
+    }
+
+.co_blue {
+    color: #409eff;
+}
+
+.co_red {
+    color: red;
+}
+
+.co_green {
+    color: #67c23a;
+}

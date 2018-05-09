@@ -53,9 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dtos\RoomTagDto.cs" />
     <Compile Include="dtos\RoomTypeDto.cs" />
+    <Compile Include="impl\RoomTagServer.cs" />
     <Compile Include="impl\RoomTypeServer.cs" />
     <Compile Include="IRoomServer.cs" />
+    <Compile Include="IRoomTagServer.cs" />
     <Compile Include="IRoomTypeServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

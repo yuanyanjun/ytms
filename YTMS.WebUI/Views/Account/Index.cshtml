@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "用户管理";
+
+}
+@section Style{
+
+    @Html.RefCss("css/header.css")
+    @Html.RefCss("css/account/index.css")
+}
+@section Body{
+    <div id="app">
+        @{Html.RenderPartial("Header"); }
+        <div class="section">
+            @{Html.RenderPartial("TopTab", 1); }
+            <div class="container">
+                <div class="aside">
+                    @{Html.RenderPartial("LeftMenu", new LeftMenuViewModel() { MenuType = MenuTypeEnum.SystemConfig, ActionMenuId = 3 }); }
+
+                </div>
+                <div class="panel ">
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+@section Script{
+    @Html.RefScript("js/account/index.js");
+}

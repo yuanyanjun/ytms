@@ -97,12 +97,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Resources\css\account\index.css" />
     <Content Include="Resources\css\common.css" />
     <Content Include="Resources\css\header.css" />
     <Content Include="Resources\css\index.css" />
     <Content Include="Resources\css\message.css" />
+    <Content Include="Resources\css\roomtag.css" />
     <Content Include="Resources\css\roomtype.css" />
+    <Content Include="Resources\css\room\index.css" />
     <Content Include="Resources\css\setting.css" />
+    <Content Include="Resources\css\owner\index.css" />
     <Content Include="Resources\element-ui\lib\alert.js" />
     <Content Include="Resources\element-ui\lib\aside.js" />
     <Content Include="Resources\element-ui\lib\autocomplete.js" />
@@ -439,9 +443,13 @@
     <Content Include="Resources\element-ui\src\utils\util.js" />
     <Content Include="Resources\element-ui\src\utils\vdom.js" />
     <Content Include="Resources\element-ui\src\utils\vue-popper.js" />
+    <Content Include="Resources\js\account\index.js" />
     <Content Include="Resources\js\common.js" />
     <Content Include="Resources\js\jquery-1.9.0.min.js" />
     <Content Include="Resources\js\message.js" />
+    <Content Include="Resources\js\owner\index.js" />
+    <Content Include="Resources\js\room\index.js" />
+    <Content Include="Resources\js\room\roomtag.js" />
     <Content Include="Resources\js\room\roomtype.js" />
     <Content Include="Resources\js\setting\index.js" />
     <Content Include="Resources\js\vue.js" />
@@ -458,7 +466,9 @@
     <Compile Include="AppCode\PlatformBaseController.cs" />
     <Compile Include="AppCode\XmlResultcs.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\RoomMgrController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Global.asax.cs">
@@ -485,6 +495,10 @@
     <Content Include="Views\Shared\TopTab.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\RoomMgr\RoomType.cshtml" />
+    <Content Include="Views\RoomMgr\RoomTag.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\RoomMgr\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
