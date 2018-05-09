@@ -66,6 +66,23 @@ namespace YTMS.BLL.Account
             }
         }
 
+        public bool EditPassword(long id, string password)
+        {
+         
+            if (string.IsNullOrWhiteSpace(password))
+                throw new CustomerException("密码不能为空");
+
+            using (var db = DBManager.GetInstance())
+            {
+                db.Updateable<T_Admins>(new
+                {
+                    Password = password
+                }).Where(i => i.Id == id).ExecuteCommand();
+
+                return true;
+            }
+        }
+
         public bool ExistName(string account, long? id)
         {
             using (var db = DBManager.GetInstance())
@@ -117,7 +134,7 @@ namespace YTMS.BLL.Account
                 var q = db.Queryable<T_Admins>();
 
                 if (!string.IsNullOrWhiteSpace(filter.Keywords))
-                    q = q.Where(w => w.Name.Equals(filter.Keywords) || w.Account.Equals(filter.Keywords));
+                    q = q.Where(w => w.Name.Contains(filter.Keywords) || w.Account.Contains(filter.Keywords));
 
                 if (filter.IsDeleted.HasValue && filter.IsDeleted.Value)
                 {
@@ -146,7 +163,7 @@ namespace YTMS.BLL.Account
         {
             using (var db = DBManager.GetInstance())
             {
-                db.Updateable<T_Admins>(new { DeletedTime = SqlFunc.GetDate() }).Where(w => w.Id == id).ExecuteCommand();
+                db.Updateable<T_Admins>(new { DeletedTime = DateTime.Now }).Where(w => w.Id == id).ExecuteCommand();
 
                 return true;
             }

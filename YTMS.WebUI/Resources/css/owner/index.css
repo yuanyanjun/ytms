@@ -1,2 +1,99 @@
 ﻿body {
 }
+
+.section .panel .head {
+    margin: 15px 0;
+	position: relative;
+}
+
+.section .panel .head .btn{
+    position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.section .panel .head .el-input{
+   width: 200px;
+   margin-right: 5px;
+}
+
+.section .panel .table {
+    position: absolute;
+	top: 58px;
+	bottom: 60px;
+	left: 0;
+	width: 100%;
+	overflow: auto;
+}
+
+.section .panel .table .icon{
+    margin-left: 3px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.section .panel .table .pagin{
+    text-align: center;
+	margin: 20px 0;	
+}
+
+.section .panel .add_panel {
+   
+}
+.section .panel .add_panel .el-form-item{
+    margin-bottom: 0;
+}
+.section .panel .add_panel .w{
+    position: relative;
+}
+
+.section .panel .add_panel .w .co_red{
+    position: absolute;
+    top: 0;
+    right: -8px;
+}
+.section .panel .add_panel .w .avator{
+   width: 120px;
+   height: 120px;
+}
+
+.section .container .panel .pagin {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+}
+
+.detail {
+
+}
+.detail .d{
+    margin: 3px 0;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.el-upload, .el-upload--picture-card {
+    width: 80px !important;
+    height: 80px !important;
+    line-height: 85px !important;
+}
+
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 80px;
+    height: 80px;
+    line-height: 85px;
+    text-align: center;
+}
+
+

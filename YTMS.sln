@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.Annex", "YTMS.Annex\YTMS.Annex.csproj", "{74B4D42C-AD02-4947-AB80-C02ECA36F76A}"
 EndProject
@@ -32,6 +32,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.BLL.SysConfig", "YTMS.BLL.SysConfig\YTMS.BLL.SysConfig.csproj", "{3518C609-0B17-46D7-9CF2-B3AAC34EA3BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.BLL.Room", "YTMS.BLL.Room\YTMS.BLL.Room.csproj", "{D07A7ADD-0AF7-4B82-AA6F-0E9AF06B0A2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9384F61D-2299-4006-AAB3-809E14313365}"
+	ProjectSection(SolutionItems) = preProject
+		WE-Palette.css = WE-Palette.css
+		WebEssentials2015-Settings.json = WebEssentials2015-Settings.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

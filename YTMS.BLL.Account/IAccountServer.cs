@@ -32,6 +32,14 @@ namespace YTMS.BLL.Account
         bool EditPassword(string account, string password);
 
         /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        bool EditPassword(long id, string password);
+
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="id"></param>
