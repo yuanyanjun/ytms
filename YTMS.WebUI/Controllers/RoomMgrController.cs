@@ -37,6 +37,7 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(data);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult SaveRoomType(RoomTypeDto dto)
         {
@@ -48,7 +49,7 @@ namespace YTMS.WebUI.Controllers
             if (_roomTypeServer.ExistName(dto.Name, dto.Id))
                 throw new CustomException("房型名称已存在");
 
-            dto.CreateBy = SessionUser.Account;
+            dto.CreateBy = CurrentAccount.Account;
             dto.CreateTime = dto.LastModifyTime = DateTime.Now;
 
             if (isAdd)
@@ -58,6 +59,7 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(dto);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult DeleteRoomType(int id)
         {
@@ -82,6 +84,7 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(data);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult SaveRoomTag(RoomTagDto dto)
         {
@@ -93,7 +96,7 @@ namespace YTMS.WebUI.Controllers
             if (_roomTagServer.ExistName(dto.Name, dto.Id))
                 throw new CustomException("标签名称已存在");
 
-            dto.CreateBy = SessionUser.Account;
+            dto.CreateBy = CurrentAccount.Account;
             dto.CreateTime = dto.LastModifyTime = DateTime.Now;
 
             if (isAdd)
@@ -103,6 +106,7 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(dto);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult DeleteRoomTag(int id)
         {

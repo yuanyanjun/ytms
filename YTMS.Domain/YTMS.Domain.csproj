@@ -49,6 +49,7 @@
     <Compile Include="T_Admins.cs" />
     <Compile Include="T_Configs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T_Owner.cs" />
     <Compile Include="T_Room_Checkout_Settles.cs" />
     <Compile Include="T_Room_Consumed_Records.cs" />
     <Compile Include="T_Room_FixedCharge.cs" />

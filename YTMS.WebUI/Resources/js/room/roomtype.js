@@ -71,11 +71,12 @@ var vm = new Vue({
                 return;
             }
 
-           
+
 
             vm.isPosting = true;
-
-            $.post(buildUrl('~/RoomMgr/SaveRoomType'), row, function (res) {
+            var filter = row;
+            filter.__RequestVerificationToken = $G.__RequestVerificationToken;
+            $.post(buildUrl('~/RoomMgr/SaveRoomType'), filter, function (res) {
                 vm.isPosting = false;
                 if (res.error) {
                     Msg.alert(res.error.message);
@@ -150,8 +151,11 @@ var vm = new Vue({
                 sureCallback: function () {
                     vm.isPosting = true;
                     var id = vm.tableData[index].Id;
-
-                    $.post(buildUrl('~/RoomMgr/DeleteRoomType'), { id: id }, function (res) {
+                    var filter = {
+                        __RequestVerificationToken: $G.__RequestVerificationToken,
+                        id: id
+                    }
+                    $.post(buildUrl('~/RoomMgr/DeleteRoomType'), filter, function (res) {
                         vm.isPosting = false;
                         if (res.error) {
                             Msg.alert(res.error.message);

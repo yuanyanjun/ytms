@@ -20,6 +20,7 @@ namespace YTMS.WebUI.Controllers
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult GetList(AdminQueryFilter filter)
         {
@@ -31,13 +32,14 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(new { Rows = dataList, TotalCount = filter.TotalCount });
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult Save(AdminDto dto)
         {
             if (dto == null)
                 throw new ArgumentNullException("dto");
 
-            dto.CreateBy = SessionUser.Account;
+            dto.CreateBy = CurrentAccount.Account;
             dto.CreateTime = dto.LastModifyTime = DateTime.Now;
 
             if (string.IsNullOrWhiteSpace(dto.Account))
@@ -67,11 +69,12 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(dto);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult Remove(long id)
         {
 
-            if (id == SessionUser.Id)
+            if (id == CurrentAccount.Id)
                 throw new CustomException("当前用户正处于登录状态，删除失败");
 
             _accountServer.Remove(id);
@@ -79,6 +82,7 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(true);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler(ExceptionHandlerMethod.ReturnJson)]
         public ActionResult ReSetPassword(long id,string password)
         {

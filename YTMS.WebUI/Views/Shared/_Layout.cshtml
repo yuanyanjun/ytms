@@ -22,6 +22,9 @@
     @RenderSection("Style", false)
 </head>
 <body>
+    <div style="display:none;">
+        @Html.AntiForgeryToken()
+    </div>
     @RenderSection("Body", false)
     @Html.RefScript("js/jquery-1.9.0.min.js")
     @Html.RefScript("js/vue.js")
@@ -31,8 +34,10 @@
     <script type="text/javascript">
         $G = {
             virtualPath: '@WebPath.Url("~/")',
-            root: '@System.Configuration.ConfigurationManager.AppSettings.Get("CurrentWebBaseUrl")'
-
+            root: '@System.Configuration.ConfigurationManager.AppSettings.Get("CurrentWebBaseUrl")',
+            __RequestVerificationToken: (function () {
+                return $('input[name="__RequestVerificationToken"]').val();
+            })()
         }
 
         function buildUrl(path) {

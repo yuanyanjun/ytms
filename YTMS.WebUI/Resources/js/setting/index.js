@@ -24,7 +24,7 @@
             });
         },
         set: function () {
-           
+
             if (this.isPosting) {
                 Msg.prompt('您手速太快，请稍后...');
                 return;
@@ -51,11 +51,12 @@
                 return;
             }
 
-           
+
 
             this.isPosting = true;
-
-            $.post(buildUrl('~/Setting/SetSysConfig'), this.configData, function (res) {
+            var filter = this.configData;
+            filter.__RequestVerificationToken = $G.__RequestVerificationToken;
+            $.post(buildUrl('~/Setting/SetSysConfig'), filter, function (res) {
                 vm.isPosting = false;
                 if (res.error) {
                     Msg.alert(res.error.message);

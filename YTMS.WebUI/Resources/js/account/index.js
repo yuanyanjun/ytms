@@ -55,6 +55,7 @@
         },
         getList: function () {
             var filter = {
+                __RequestVerificationToken: $G.__RequestVerificationToken,
                 keywords: this.keyword,
                 pageIndex: this.pageIndex,
                 pageSize: this.pageSize
@@ -154,6 +155,7 @@
             }
 
             vm.isPosting = true;
+            filter['__RequestVerificationToken'] = $G.__RequestVerificationToken;
             $.post(buildUrl('~/Account/Save'), filter, function (res) {
                 vm.isPosting = false;
                 if (res.error) {
@@ -189,7 +191,11 @@
                     vm.isPosting = true;
                     var id = vm.tableData[index].Id;
 
-                    $.post(buildUrl('~/Account/Remove'), { id: id }, function (res) {
+                    var filter = {
+                        __RequestVerificationToken: $G.__RequestVerificationToken,
+                        id: id
+                    }
+                    $.post(buildUrl('~/Account/Remove'), filter, function (res) {
                         vm.isPosting = false;
                         if (res.error) {
                             Msg.alert(res.error.message);
@@ -202,7 +208,7 @@
                 canelCallback: null,
             });
         },
-        
+
         showRePwdView: function (row) {
             this.dialogResetVisible = true;
             this.form2.Id = row.Id;
@@ -233,6 +239,7 @@
             }
 
             var filter = {
+                __RequestVerificationToken: $G.__RequestVerificationToken,
                 Id: this.form2.Id,
                 Password: this.form2.Password
             };

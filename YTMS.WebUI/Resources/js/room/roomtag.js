@@ -74,8 +74,9 @@ var vm = new Vue({
 
 
             vm.isPosting = true;
-
-            $.post(buildUrl('~/RoomMgr/SaveRoomTag'), row, function (res) {
+            var filter = row;
+            filter.__RequestVerificationToken = $G.__RequestVerificationToken;
+            $.post(buildUrl('~/RoomMgr/SaveRoomTag'), filter, function (res) {
                 vm.isPosting = false;
                 if (res.error) {
                     Msg.alert(res.error.message);
@@ -150,8 +151,11 @@ var vm = new Vue({
                 sureCallback: function () {
                     vm.isPosting = true;
                     var id = vm.tableData[index].Id;
-
-                    $.post(buildUrl('~/RoomMgr/DeleteRoomTag'), { id: id }, function (res) {
+                    var fitler = {
+                        __RequestVerificationToken: $G.__RequestVerificationToken,
+                        id: id
+                    };
+                    $.post(buildUrl('~/RoomMgr/DeleteRoomTag'), fitler, function (res) {
                         vm.isPosting = false;
                         if (res.error) {
                             Msg.alert(res.error.message);

@@ -29,13 +29,14 @@ namespace YTMS.WebUI.Controllers
             return JsonContent(data);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost, ActionExceptionHandler]
         public ActionResult SetSysConfig(SysConfigDto dto)
         {
             if (dto == null)
                 throw new ArgumentNullException("config");
 
-            dto.CreateBy = dto.LastModifyBy = SessionUser.Id.ToString();
+            dto.CreateBy = dto.LastModifyBy = CurrentAccount.Id.ToString();
             dto.CreateTime = dto.LastModifyTime = DateTime.Now;
 
             _sysConfigServer.Set(dto);
@@ -46,7 +47,7 @@ namespace YTMS.WebUI.Controllers
 
         private SysConfigDto InitConfig()
         {
-            var userId = SessionUser.Id.ToString();
+            var userId = CurrentAccount.Id.ToString();
             var dt = DateTime.Now;
             var cfg = new SysConfigDto()
             {

@@ -34,11 +34,11 @@ namespace YTMS.WebUI
                         CreateSession(sessionid);
                     }
 
-                    
+
                 }
 
                 //保持会话
-                if (SessionUser == null)
+                if (CurrentAccount == null)
                 {
                     var session_id = SessionId;
                     if (!(!string.IsNullOrWhiteSpace(session_id) && CreateSession(session_id)))
@@ -56,11 +56,11 @@ namespace YTMS.WebUI
             }
         }
 
-        
+
 
         protected override void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            filterContext.Controller.ViewBag.CurrentAccount = SessionUser;
+            filterContext.Controller.ViewBag.CurrentAccount = CurrentAccount;
             base.OnResultExecuting(filterContext);
         }
 
@@ -72,7 +72,7 @@ namespace YTMS.WebUI
             }
         }
 
-        protected AccountSessionInfo SessionUser
+        protected AccountSessionInfo CurrentAccount
         {
             get
             {
@@ -87,6 +87,17 @@ namespace YTMS.WebUI
             {
                 Session[session_key] = value;
                 _sessionuser = value;
+            }
+        }
+
+        public string AccountName
+        {
+            get
+            {
+                if (CurrentAccount != null)
+                    return CurrentAccount.Account;
+
+                return string.Empty;
             }
         }
 
@@ -121,7 +132,7 @@ namespace YTMS.WebUI
             var user = adminServer.Get((long)id);//UserDAL.Instance.Get(id);
             if (user != null)
             {
-                SessionUser = user.MapTo<AccountSessionInfo>();
+                CurrentAccount = user.MapTo<AccountSessionInfo>();
                 //将SessionID写到客户端，以备会话过期时再用它保持会话
                 SessionId = sessionid;
                 if (OnCreateSession != null)

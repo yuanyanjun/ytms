@@ -18,7 +18,6 @@ namespace YTMS.BLL.Room
 
             using (var db = DBManager.GetInstance())
             {
-                var obj = dto as T_Room_Tags;
                 return db.Insertable<T_Room_Tags>(dto).ExecuteReturnIdentity();
             }
         }
