@@ -57,6 +57,17 @@
             }
         }
 
+        function loginOut() {
+            Msg.confirm({
+                title: '提示',
+                text: '确定要退出系统吗？',
+                sureCallback: function () {
+                    window.location.href = buildUrl("~/LoginOut/Index");
+                },
+                canelCallback: null,
+            });
+        }
+
     </script>
     @RenderSection("Script", false)
 </body>
