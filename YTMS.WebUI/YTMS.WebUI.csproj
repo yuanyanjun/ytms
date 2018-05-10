@@ -460,6 +460,7 @@
     <Compile Include="AppCode\ActionExceptionHandler.cs" />
     <Compile Include="AppCode\AjaxRequestResult.cs" />
     <Compile Include="AppCode\BaseController.cs" />
+    <Compile Include="AppCode\ConstDefined.cs" />
     <Compile Include="AppCode\CustomException.cs" />
     <Compile Include="AppCode\CustomJsonResult.cs" />
     <Compile Include="AppCode\PageHelper.cs" />
@@ -468,6 +469,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginOutController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\RoomMgrController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
@@ -508,6 +511,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LoginOut\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
