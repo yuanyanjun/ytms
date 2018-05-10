@@ -60,6 +60,6 @@
         }
     },
     created: function () {
-
+       
     }
 });
