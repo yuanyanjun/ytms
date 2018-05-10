@@ -101,6 +101,7 @@
     <Content Include="Resources\css\common.css" />
     <Content Include="Resources\css\header.css" />
     <Content Include="Resources\css\index.css" />
+    <Content Include="Resources\css\login.css" />
     <Content Include="Resources\css\message.css" />
     <Content Include="Resources\css\roomtag.css" />
     <Content Include="Resources\css\roomtype.css" />
@@ -446,6 +447,7 @@
     <Content Include="Resources\js\account\index.js" />
     <Content Include="Resources\js\common.js" />
     <Content Include="Resources\js\jquery-1.9.0.min.js" />
+    <Content Include="Resources\js\login.js" />
     <Content Include="Resources\js\message.js" />
     <Content Include="Resources\js\owner\index.js" />
     <Content Include="Resources\js\room\index.js" />

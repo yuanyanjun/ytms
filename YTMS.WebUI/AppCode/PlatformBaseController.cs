@@ -28,7 +28,7 @@ namespace YTMS.WebUI
                 if (!IsAjaxRequest)
                 {
                     var sessionid = req.QueryString["sessionid"];
-                    sessionid = StringExt.Base64Encode("1", null);
+
                     if (!string.IsNullOrWhiteSpace(sessionid))
                     {
                         CreateSession(sessionid);
@@ -78,7 +78,7 @@ namespace YTMS.WebUI
             {
                 if (_sessionuser == null)
                 {
-                    _sessionuser = (AccountSessionInfo)Session[session_key];
+                    _sessionuser = Session[session_key].MapTo<AccountSessionInfo>();
                 }
 
                 return _sessionuser;
