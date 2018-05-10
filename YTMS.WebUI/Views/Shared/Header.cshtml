@@ -7,6 +7,6 @@
     <div class="left"><span class="g">云途民宿酒店</span><span class="g">营业时间：@(DateTime.Now.ToString("yyyy-MM-dd"))</span></div>
     <div class="right">
         <span class="g">操作人：@session.Name</span>
-        <a href="javascript:void(0);" class="g check_out">退出</a>
+        <a href="@WebPath.Url("~/LoginOut/Index")" class="g check_out">退出</a>
     </div>
 </div>
