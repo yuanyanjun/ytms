@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.Annex", "YTMS.Annex\YTMS.Annex.csproj", "{74B4D42C-AD02-4947-AB80-C02ECA36F76A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.Common.Core", "YTMS.Common.Core\YTMS.Common.Core.csproj", "{FB09703D-0E5E-468A-910C-45F77C9795D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTMS.WebApi", "YTMS.WebApi\YTMS.WebApi.csproj", "{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356}"
@@ -45,10 +43,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74B4D42C-AD02-4947-AB80-C02ECA36F76A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB09703D-0E5E-468A-910C-45F77C9795D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -94,7 +88,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{74B4D42C-AD02-4947-AB80-C02ECA36F76A} = {179B47DA-6379-469D-BD66-5B669D50F784}
 		{FB09703D-0E5E-468A-910C-45F77C9795D8} = {07A6405F-42D8-4404-B077-0BA99278E720}
 		{6731A919-8BA8-42C2-8BDB-9FAB7EA2E356} = {179B47DA-6379-469D-BD66-5B669D50F784}
 		{899BD92F-1487-4DEA-B4D3-5A6A16D83242} = {179B47DA-6379-469D-BD66-5B669D50F784}
