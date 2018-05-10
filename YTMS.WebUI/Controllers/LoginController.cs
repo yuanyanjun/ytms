@@ -35,7 +35,7 @@ namespace YTMS.WebUI.Controllers
 
             try
             {
-                var userInfo = _accountServer.Get(account);// UserServer.Instance.Get(account, password); // UserDAL.Instance.Get(account, password);
+                var userInfo = _accountServer.Get(account);
                 if (userInfo != null && userInfo.Password == password)
                 {
                     Session[ConstDefined.SessionKey] = userInfo;
